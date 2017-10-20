@@ -60,22 +60,26 @@ document.getElementById("start_btn").onclick = function init(){
           }
           else if(user_guess===answer[i] && sign===0){
             guess_left -=0;
+            sign2 = false;
 
           }
-          if (user_guess===wrong_ans[i] && sign===0){
-            guess_left -=0;
 
-            }
           }
       
 
     
 
-        for (var i=0; i<wrong_ans.length; i++){    
+        for (var i=0; i<wrong_ans.length; i++){  
+
+        if (user_guess===wrong_ans[i] && sign===0){
+            guess_left -=0;
+            sign2 = false;
+            }  
 
         if(sign===0 && user_guess!==wrong_ans[i]){
           sign2=true;
            }
+
          }     
 
         if (sign2===true){ 
@@ -83,7 +87,9 @@ document.getElementById("start_btn").onclick = function init(){
           j +=1;
           wrong_ans[j]=user_guess;
         }
-        console.log("wrong ans is: " +wrong_ans);
+        // console.log("J value: " +j);
+        // console.log("wrong ans is: " +wrong_ans);
+        sign2=false;
         
 
 
