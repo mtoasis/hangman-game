@@ -4,7 +4,7 @@ var lose_numb = 0;
 var guess_left = 9;
 
 document.getElementById("start_btn").onclick = function init(){
-  document.getElementById("heading").innerHTML="<span>Game is On</span>";
+document.getElementById("heading").innerHTML="<span class='heading_text'>Game is On</span>";
 
 
     var library=[
@@ -22,29 +22,27 @@ document.getElementById("start_btn").onclick = function init(){
                     ]
 
               
-    var old_ans=library[Math.floor(Math.random()*97)];
-    var comp_guess=old_ans.split("");
+    var old_ans=library[Math.floor(Math.random()*97)]; //get random element in library array.
+    var comp_guess=old_ans.split(""); // convert string into array 
     
     console.log(comp_guess);
-    var answer=[];
-    var under_line="_ ";
+    var answer=[]; //assigning value "answer"
+    var under_line="_ "; //blank underline 
 
      for (var i=0; i<comp_guess.length; i++){
-        answer[i]=under_line;    
+        answer[i]=under_line;    // making blacnk underline for # of letters in selected word
       }
-      document.getElementById("answer").innerHTML = answer;
+      document.getElementById("answer_div").innerHTML = answer;
       var wrong_ans =[0];
       var j= -1;
       var sign2 = false;
 
- 
 
     document.onkeyup = function(event){ 
-        document.getElementById("winnerimg").innerHTML='';
+
+
         var user_guess = event.key;
         
-
-
         console.log(user_guess);
         
         var sign=0;
@@ -61,13 +59,10 @@ document.getElementById("start_btn").onclick = function init(){
           else if(user_guess===answer[i] && sign===0){
             guess_left -=0;
             sign2 = false;
-
           }
 
           }
-      
-
-    
+          
 
         for (var i=0; i<wrong_ans.length; i++){  
 
@@ -89,7 +84,7 @@ document.getElementById("start_btn").onclick = function init(){
         }
         // console.log("J value: " +j);
         // console.log("wrong ans is: " +wrong_ans);
-        sign2=false;
+        sign2=false;// make sign2 = false again to initialize. 
         
 
 
@@ -97,7 +92,10 @@ document.getElementById("start_btn").onclick = function init(){
         if (guess_left===0){
           lose_numb +=1;
           guess_left =9;
-          document.getElementById("winnerimg").innerHTML='<img src="asset/image/loser.jpg">';
+          document.getElementById("winnerimg").innerHTML='<img class="winn_img" src="asset/image/loser.jpg">'+'<br>'+
+          '<span class="message">Lost! Press any key to restart</span>';
+          // document.getElementById("winnerimg").style.visibility = "visible";
+          // document.getElementById("heading").innerHTML="<span class='heading_text'>Lost! Press any key to restart</span>";
           initialize(); 
           init();
 
@@ -111,7 +109,7 @@ document.getElementById("start_btn").onclick = function init(){
       }                        
      
 
-      document.getElementById("answer").innerHTML = answer; //display answers so far
+      document.getElementById("answer_div").innerHTML = answer; //display answers so far
 
       var x = document.createElement("span");
       x.appendChild(document.createTextNode(user_guess + ", ")); //display user's input.
@@ -122,7 +120,9 @@ document.getElementById("start_btn").onclick = function init(){
       if (sign2===comp_guess.length){ //if user answer the word correctly, 
           win_numb +=1; //win +1
           guess_left =9; //guess turns back to 9
-          document.getElementById("winnerimg").innerHTML='<img src="asset/image/win.jpg">';
+          document.getElementById("winnerimg").innerHTML='<img class="winn_img" src="asset/image/win.jpg">'+'<br>'+
+          '<span class="message">Winner! Press any key to restart</span>';
+          // document.getElementById("heading").innerHTML="<span class='heading_text'>Win! Press any key to restart</span>";
           initialize()         
           init()          
       }
@@ -139,6 +139,7 @@ document.getElementById("start_btn").onclick = function init(){
 
 
     }
+
   }
   
 

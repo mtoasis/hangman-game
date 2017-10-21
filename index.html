@@ -3,58 +3,95 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> Mobile friendly is not supported -->
   <title>Hangman-Game
   </title>
-  <style>
-  #answer{
-    font-size:40px;
-    padding:20px;
-  }
-  #prev_ans{
-    font-size:30px;
-    padding-top:10px;
-  }
-  #heading{
-    font-size:40px;
-  }
-
-  #red{
-    color:red;
-  }
-
-</style>
-
+  <link rel="stylesheet" href="asset/css/style.css">
 
 </head>
 
 <body>
 
 
-  <div id="heading">
-    <span>Press Start Button to Begin</span>
+  <div class="container">
+    <div id="winnerimg"></div>
+
+    <div class="maincontent">
+      
+
+      <div id="heading">
+        <span class="heading_text">
+
+         Press Start Button to Begin
+
+        </span>
+        <button id="start_btn">
+
+        Start
+
+        </button>
+
+        
+
+
+      </div>
+
+      <div>
+
+
+
+      </div>
+
+      <div id="answer_div">
+
+      </div>
+
+      <div id="your_guess">
+
+      Your Guess is: 
+
+      </div>
+
+      <div id="score">
+
+      </div>
+
+      <div id="prev_ans">
+
+      <span>
+
+      Previous Answer: 
+
+      </span>
+
+      </div>
+
+
+      <div id="message">
+        
+      </div>
+  
+
+      <script src="asset/javascript/game.js"></script>
+
   </div>
 
-  <div>
-    <button id="start_btn">Start</button>
-  </div>
 
-  <div id="answer">
-  </div>
-  <div id="your_guess">
-    Your Guess is: 
-  </div>
-  <div id="score">
-  </div>
-  <div id="prev_ans">
-  <span>Previous Answer: </span>
-  </div>
+    <div class="footing">
+
+      <span class="footing_text">
+
+      Copyright 2017 @ Julian lee
+
+      </span>
+
+    </div>
+
+</div>
 
 
-  <div id="message"></div>
-  <div id="winnerimg"></div>
-
-  <script src="asset/javascript/game.js"></script>
+  
+</div>
 
 </body>
 
